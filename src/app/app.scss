@@ -1,16 +1,29 @@
-// http://ionicframework.com/docs/theming/
+@font-face {
+    font-family: 'montserratlight';
+    src: url('../assets/fonts/montserrat-light-webfont.woff2') format('woff2'),
+         url('../assets/fonts/montserrat-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+.my-container {
+    background-image:  url("../assets/images/colorful-triangles-background_yB0qTG6.jpg");
+    background-repeat: repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    position: absolute;
+}
+.transp .item-content {
+    background-color: transparent !important;
+    color: #fff;
+}
+
+.wowBg
+{
+    background: #c0392b; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #c0392b, #8e44ad); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #c0392b, #8e44ad); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

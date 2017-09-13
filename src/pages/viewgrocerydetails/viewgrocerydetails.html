@@ -1,0 +1,59 @@
+
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>צפה בפרטי המוצר</ion-title>
+	</ion-navbar>
+
+</ion-header>
+<ion-content padding>
+	<ion-card>
+    <!--gets image from server of the speicfic item user selected-->
+		<img src="http://138.197.93.114/assets/product/{{grocery.grocery_image}}"/>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-col col-8>
+            <!--shows grocery name-->
+						<h2><b>{{grocery.grocery_name}} </b></h2>
+					</ion-col>
+					<ion-col col-4>
+            <h2><b>מחיר</b></h2>
+            <!--shows grocery price-->
+						<h2><b>{{grocery.price}}</b></h2>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			<p>
+				{{grocery.description}}
+			</p>
+		</ion-card-content>
+
+	</ion-card>
+	<div text-center>
+		<ion-grid>
+			<ion-row>
+				<ion-col col-6>
+					<ion-list>
+						<ion-item>
+							<ion-label>כמות מוצרים</ion-label>
+              <!--click event button with radio buttons so user can select quantity-->
+							<ion-select [(ngModel)]="quantity" (ionChange)="optionsFn();">
+								<ion-option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">{{i}}</ion-option>
+							</ion-select>
+						</ion-item>
+					</ion-list>
+				</ion-col>
+
+        <!--click event button selecting item to add to cart-->
+				<ion-col col-6>
+					<button ion-button small icon-start (click)="selectedItem(grocery)">
+						<ion-icon name="cart"></ion-icon>
+						הוסף לעגלה
+					</button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</div>
+
+</ion-content>

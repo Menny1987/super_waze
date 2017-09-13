@@ -1,0 +1,26 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			הוסף לרשימת הקניות
+		</ion-title>
+		<!-- <ion-buttons end>
+			<button ion-button (click)="logout()">
+				<ion-icon name="log-out"></ion-icon>
+			</button>
+		</ion-buttons> -->
+	</ion-navbar>
+</ion-header>
+<ion-content class="card-background-page">
+  <!-- <ion-list>
+    <button ion-item *ngFor="let item of category_list" (click)="itemSelected(item)">
+      {{ item.category_name }}
+    </button>
+  </ion-list> -->
+
+
+<!--click event button to choose category of products-->
+   <ion-card *ngFor="let item of category_list" (click)="itemSelected(item)">
+    <img src="{{item.category_image}}" class="blr"/>
+    <div class="card-title">{{ item.category_name }}</div>
+  </ion-card>
+</ion-content>

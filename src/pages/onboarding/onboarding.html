@@ -1,0 +1,58 @@
+<ion-content class="welcomeContent bgOnbording" >
+
+	<ion-row class="logo-row" [style.padding-top]="'50px'">
+		<ion-col text-center>
+			<img src="./assets/images/logo.png" style="display: inline-block;max-width: 200px;" />
+		</ion-col>
+	</ion-row>
+
+	<div padding>
+		<ion-row text-center>
+			<ion-col col-6 text-right
+			[style.color]="'#ff8200'"
+			[style.font-size]="'40px'"
+			>
+				Super
+			</ion-col>
+			<ion-col col-6 text-left
+			[style.color]="'#43b02a'"
+			[style.font-size]="'40px'"
+			>
+				Waze
+			</ion-col>
+		</ion-row>
+	</div>
+
+
+  <ion-row (click)="loginPage()" text-center>
+    <ion-col
+    >
+
+      <!--click event button route to login page-->
+      <button ion-button clear [style.color]="'blue'">
+        <b> <h3>יש כבר חשבון? התחבר</h3> </b>
+      </button>
+    </ion-col>
+  </ion-row>
+
+	<div style="bottom:90px; width:100%; left: 0px; position: absolute;">
+
+    <!--route to signup page-->
+		<div padding (click) = "signupPage()">
+			<button ion-button block
+			[style.position] = "'relative'"
+			[style.padding] = "'0 30px'"
+			[style.height] = "'50px'"
+			[style.background-color] = "'#ff8200'"
+			[style.box-shadow] = "'15px 0px 35px 0px rgba(244,67,54,0.25)'"
+			[style.border-radius] = "'10px'"
+			[style.color]="'white'"
+			>
+				..בואו נתחיל
+			</button>
+		</div>
+		<div padding>
+
+		</div>
+	</div>
+</ion-content>

@@ -1,0 +1,90 @@
+<ion-header>
+	<ion-navbar>
+	<ion-title>תשלום</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<!--click event confirm button-->
+<ion-content padding>
+	<form [formGroup]="signupForm" (submit)="confirm()" novalidate>
+		<ion-item [style.padding-left]='"0px"'>
+			<ion-label stacked>שם בעל הכרטיס</ion-label>
+			<ion-input #cardholdername formControlName="cardholdername" type="text" placeholder="שם בעל הכרטיס"
+			[class.invalid]="!signupForm.controls.cardholdername.valid && signupForm.controls.cardholdername.dirty">
+			</ion-input>
+		</ion-item>
+
+
+    <!--fields of payment form with validations-->
+
+
+		<ion-item [style.padding-left]='"0px"'>
+			<ion-label stacked>מספר כרטיס</ion-label>
+			<ion-input #cardnumber formControlName="cardnumber" type="number" placeholder="מספר כרטיס"
+			(input)="validateCardNumber()"
+			[class.invalid]="!signupForm.controls.cardnumber.valid && signupForm.controls.cardnumber.dirty">
+			</ion-input>
+		</ion-item>
+
+		<ion-item class="error-message" [style.padding-left]='"0px"'
+		*ngIf="!is_valid_card_number">
+		<p>מספר כרטיס לא תקין</p>
+		</ion-item>
+
+		<ion-item [style.padding-left]='"0px"'>
+			<ion-label stacked>תאריך תפוגה חודשי</ion-label>
+			<ion-input #expirymonth formControlName="expirymonth" type="number" placeholder="mm"
+			(input)="validateExpiryDate()"
+			[class.invalid]="!signupForm.controls.expirymonth.valid && signupForm.controls.expirymonth.dirty">
+			</ion-input>
+		</ion-item>
+
+		<ion-item [style.padding-left]='"0px"'>
+			<ion-label stacked>תאריך תפוגה שנתי</ion-label>
+			<ion-input #expiryyear formControlName="expiryyear" type="number" placeholder="yyyy"
+			(input)="validateExpiryDate()"
+			[class.invalid]="!signupForm.controls.expiryyear.valid && signupForm.controls.expiryyear.dirty">
+			</ion-input>
+		</ion-item>
+
+		<ion-item class="error-message" [style.padding-left]='"0px"'
+		*ngIf="!is_valid_expiry">
+		<p>תאריך תפוגה חודשי אינו תקין</p>
+		</ion-item>
+
+		<ion-item [style.padding-left]='"0px"'>
+			<ion-label stacked>CVV</ion-label>
+			<ion-input #cvv formControlName="cvv" type="number" placeholder="CVV"
+			(input)="validateCVC()"
+			[class.invalid]="!signupForm.controls.cvv.valid && signupForm.controls.cvv.dirty">
+			</ion-input>
+		</ion-item>
+
+		<ion-item class="error-message" [style.padding-left]='"0px"'
+		*ngIf="!is_valid_cvv">
+		<p>מספר CVV אינו תקין.</p>
+		</ion-item>
+
+
+		<ion-item [style.padding-left]='"0px"'>
+			<ion-label stacked>כתובת למשלוח</ion-label>
+			<ion-input #shipping formControlName="shipping" type="text" placeholder="כתובת למשלוח"
+			(input)="validateCVC()"
+			[class.invalid]="!signupForm.controls.shipping.valid && signupForm.controls.shipping.dirty">
+			</ion-input>
+		</ion-item>
+
+		<br>
+
+		<button ion-button block type="submit"
+		[style.position] = "'relative'"
+        [style.padding] = "'0 30px'"
+        [style.height] = "'50px'"
+        [style.background-color] = "'#1B8BF9'"
+        [style.box-shadow] = "'15px 0px 35px 0px rgba(244,67,54,0.25)'"
+        [style.border-radius] = "'10px'"
+		>
+			אשר
+		</button>
+	</form>
+</ion-content>

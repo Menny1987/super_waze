@@ -1,0 +1,91 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			העגלה שלי
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+
+	<ion-row class="logo-row" [style.padding-top]="'50px'" *ngIf="!is_item">
+		<ion-col text-center>
+			<img src="./assets/images/logo.png" style="display: inline-block;max-width: 200px;" /><br>
+
+      <!--popup message to user that he didn't add item to cart-->
+			<h3>לא נוסף מוצר לעגלת הקניות</h3>
+		</ion-col>
+	</ion-row>
+
+	<!-- <ion-list *ngIf="is_item">
+		<ion-item *ngFor="let item of cart">
+			<ion-thumbnail item-start>
+				<img src="assets/product/{{item.grocery_image}}">
+			</ion-thumbnail>
+			<h2>{{item.grocery_name}}</h2>
+			<p>Number of items:{{item.quantity}}</p>
+		</ion-item>
+	</ion-list> -->
+
+  <!--show the category of the specific item the user added to cart-->
+	<ion-list *ngFor="let item of product_list;let ii=index">
+	    <ion-list-header>
+	      {{item.category_name_original}}
+	    </ion-list-header>
+
+    <!--show list of items user add to cart-->
+	    <ion-item *ngFor="let item1 of item.items; let i=index">
+			<ion-thumbnail item-start>
+				<img src="http://138.197.93.114/assets/product/{{item1.grocery_image}}">
+			</ion-thumbnail>
+        <!--show item name-->
+			<h2>{{item1.grocery_name}}</h2>
+        <!--show price after multiplies it with quantity-->
+			<p item-end>{{item1.quantity}} * {{item1.price}} = ₪{{item1.quantity*item1.price}}</p>
+        <button ion-button small color="danger" (click)="removeItem(item.category_id,i)">הסר</button>
+		</ion-item>
+  	</ion-list>
+
+  	<ion-item *ngIf="is_item">
+		<p item-end>₪ סך הכל: {{total}}</p>
+	</ion-item>
+  <!--click event button route to payment form-->
+	<button ion-button type="button" (click)="continueToCheckout()" block
+	    [style.position] = "'relative'"
+	    [style.padding] = "'0 30px'"
+	    [style.background-color] = "'#ff8200'"
+	    [style.box-shadow] = "'15px 0px 35px 0px rgba(244,67,54,0.25)'"
+	    [style.border-radius] = "'10px'"
+	    [style.margin-top]="'10px'"
+	    [style.margin-bottom]="'50px'"
+	    *ngIf="is_item"
+	    >
+	   המשך לתשלום
+	</button>
+
+  <!--click event button route to map page-->
+  <button ion-button type="button" (click)="continueToMap()" block
+          [style.position] = "'relative'"
+          [style.padding] = "'0 30px'"
+          [style.background-color] = "'#0080ff'"
+          [style.box-shadow] = "'15px 0px 35px 0px rgba(244,67,54,0.25)'"
+          [style.border-radius] = "'10px'"
+          [style.margin-top]="'10px'"
+          [style.margin-bottom]="'50px'"
+  >
+   נווט בסופר
+  </button>
+
+  <!--click event button to continue buy groceries-->
+	<button ion-button type="button" (click)="productListPage()" block
+	    [style.position] = "'relative'"
+	    [style.padding] = "'0 30px'"
+	    [style.background-color] = "'#43b02a'"
+	    [style.box-shadow] = "'15px 0px 35px 0px rgba(244,67,54,0.25)'"
+	    [style.border-radius] = "'10px'"
+	    [style.margin-top]="'10px'"
+	    [style.margin-bottom]="'50px'"
+	    >
+	    המשך בקניה
+	</button>
+
+</ion-content>

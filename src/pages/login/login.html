@@ -1,0 +1,78 @@
+<ion-content no-bounce>
+
+    <ion-row class="logo-row">
+        <ion-col col-1>
+            <div padding>
+                <ion-icon (click)="popPage()" name="md-arrow-back" style="font-size: 35px;color:#ff8200">
+                </ion-icon>
+            </div>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="logo-row" [style.padding-top]="'20px'">
+        <ion-col text-center>
+            <img src="./assets/images/logo.png" style="display: inline-block;max-width: 200px;" />
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col text-center>
+            <h4>הרשמה</h4>
+        </ion-col>
+    </ion-row>
+<!--login user form -> request from user email and password-->
+    <div padding>
+        <form (ngSubmit)="loginUser()" [formGroup]="loginForm" novalidate>
+            <div class="row responsive-md">
+                <div class="col col-50 col-offset-25">
+                    <ion-item [style.padding-left]='"0px"'>
+                        <ion-label stacked>אימייל</ion-label>
+                        <ion-input #email formControlName="email" type="email" placeholder="כתובת מייל"
+                        [class.invalid]="!loginForm.controls.email.valid && loginForm.controls.email.dirty"></ion-input>
+                    </ion-item>
+
+                    <ion-item class="error-message" [style.padding-left]='"0px"'
+                        *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty">
+                        <p>אנא הכנס כתובת מייל חוקית.</p>
+                    </ion-item>
+
+                    <ion-item [style.padding-left]='"0px"'>
+                        <ion-label stacked>סיסמא</ion-label>
+                        <ion-input #password formControlName="password" type="password" placeholder="הסיסמא שלך..."
+                        [class.invalid]="!loginForm.controls.password.valid && loginForm.controls.password.dirty"></ion-input>
+                    </ion-item>
+
+                    <ion-item class="error-message" [style.padding-left]='"0px"'
+                        *ngIf="!loginForm.controls.password.valid  && loginForm.controls.password.dirty">
+                        <p>הסיסמא חייבת להכיל לפחות 6 תווים.</p>
+                    </ion-item>
+                    <br>
+                    <button ion-button block type="button"
+                        (click)="loginUser()"
+                        [style.position] = "'relative'"
+                        [style.padding] = "'0 30px'"
+                        [style.height] = "'50px'"
+                        [style.background-color] = "'#ff8200'"
+                        [style.box-shadow] = "'15px 0px 35px 0px rgba(244,67,54,0.25)'"
+                        [style.border-radius] = "'10px'"
+                        [style.color]="'white'"
+                        >
+                        התחבר
+                    </button>
+                    <br>
+                    <button ion-button block type="button" clear (click)="goToSignup()"
+                    [style.color]="'#43b02a'"
+                    >
+                           צור חשבון חדש
+                    </button>
+                    <!-- <button ion-button block clear (click)="goToResetPassword()">
+                        I forgot my password
+                    </button> -->
+                </div>
+            </div>
+        </form>
+         <button ion-button block clear (click)="goToResetPassword()">
+            ...שכחתי סיסמא
+        </button>
+    </div>
+</ion-content>

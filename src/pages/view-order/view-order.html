@@ -1,0 +1,30 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>צפה בהזמנה</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<ion-list *ngFor="let item of item_detail;let ii=index ">
+	    <ion-item *ngFor="let item1 of item; let i=index">
+			<ion-thumbnail item-start>
+				<img src="http://138.197.93.114/assets/product/{{item1.grocery_image}}">
+			</ion-thumbnail>
+			<h2>{{item1.grocery_name}}</h2>
+			<p item-end>{{item1.quantity}} * {{item1.price}} = ₪{{item1.quantity*item1.price_original | number:'1.2-2'}}</p>
+		</ion-item>
+  	</ion-list>
+
+  <button ion-button type="button" (click)="continueToMap()" block
+          [style.position] = "'relative'"
+          [style.padding] = "'0 30px'"
+          [style.background-color] = "'#0080ff'"
+          [style.box-shadow] = "'15px 0px 35px 0px rgba(244,67,54,0.25)'"
+          [style.border-radius] = "'10px'"
+          [style.margin-top]="'10px'"
+          [style.margin-bottom]="'50px'"
+  >
+    נווט בסופר
+  </button>
+</ion-content>

@@ -1,14 +1,40 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu" style="color:black"></ion-icon>
+		</button>
+		<ion-title>
+			שלום {{username | titleCase}}
+		</ion-title>
+		<!-- <ion-buttons end>
+			<button ion-button (click)="logout()">
+				<ion-icon name="log-out" style="color:black"></ion-icon>
+			</button>
+		</ion-buttons> -->
+	</ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="home" padding>
+
+	<ion-row class="logo-row" [style.padding-top]="'50px'">
+		<ion-col text-center>
+			<img src="./assets/images/logo.png" style="display: inline-block;max-width: 200px;" />
+		</ion-col>
+	</ion-row>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+	<button ion-button type="button" (click)="addListPage()" block
+	    [style.position] = "'relative'"
+	    [style.padding] = "'0 30px'"
+	    [style.background-color] = "'#43b02a'"
+	    [style.box-shadow] = "'15px 0px 35px 0px rgba(244,67,54,0.25)'"
+	    [style.border-radius] = "'10px'"
+	    >
+	    צור רשימת קניות
+	</button>
 </ion-content>

@@ -1,0 +1,87 @@
+<ion-content no-bounce>
+	<ion-row class="logo-row">
+        <ion-col col-1>
+            <div padding>
+                <ion-icon (click)="popPage()" name="md-arrow-back" style="font-size: 35px;color:#ff8200">
+                </ion-icon>
+            </div>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="logo-row" [style.padding-top]="'20px'">
+        <ion-col text-center>
+            <img src="./assets/images/logo.png" style="display: inline-block;max-width: 200px;" />
+        </ion-col>
+    </ion-row>
+
+	<ion-row>
+        <ion-col text-center>
+            <h4>צור חשבון</h4>
+        </ion-col>
+    </ion-row>
+
+  <!--signup form-->
+
+	<div padding>
+	<form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+		<ion-item [style.padding-left]='"0px"'>
+			<ion-label stacked>שם פרטי</ion-label>
+			<ion-input #firstname formControlName="firstname" type="text" placeholder="שם הפרטי"
+			[class.invalid]="!signupForm.controls.firstname.valid && signupForm.controls.firstname.dirty">
+			</ion-input>
+		</ion-item>
+
+		<ion-item [style.padding-left]='"0px"'>
+			<ion-label stacked>שם משפחה</ion-label>
+			<ion-input #lastname formControlName="lastname" type="text" placeholder="שם משפחה"
+			[class.invalid]="!signupForm.controls.lastname.valid && signupForm.controls.lastname.dirty">
+			</ion-input>
+		</ion-item>
+
+		<ion-item [style.padding-left]='"0px"'>
+			<ion-label stacked>אימייל</ion-label>
+			<ion-input #email formControlName="email" type="email" placeholder="Your email address"
+			[class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty">
+			</ion-input>
+		</ion-item>
+
+		<ion-item class="error-message" [style.padding-left]='"0px"'
+		*ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
+		<p>אנא הכנס כתובת מייל חוקית.</p>
+		</ion-item>
+
+		<ion-item [style.padding-left]='"0px"'>
+			<ion-label stacked>טלפון</ion-label>
+			<ion-input #phone formControlName="phone" type="number" placeholder="מספר הטלפון שלך"
+			[class.invalid]="!signupForm.controls.phone.valid && signupForm.controls.phone.dirty">
+			</ion-input>
+		</ion-item>
+
+		<ion-item [style.padding-left]='"0px"'>
+			<ion-label stacked>סיסמא</ion-label>
+			<ion-input #password formControlName="password" type="password" placeholder="הסיסמא שלך"
+			[class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty">
+			</ion-input>
+		</ion-item>
+
+		<ion-item class="error-message"
+		*ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
+		<p>הסיסמא חייבת להכיל לפחות 6 תווים.</p>
+		</ion-item>
+
+		<br>
+
+		<button ion-button block type="submit"
+		[style.position] = "'relative'"
+        [style.padding] = "'0 30px'"
+        [style.height] = "'50px'"
+        [style.background-color] = "'#ff8200'"
+        [style.box-shadow] = "'15px 0px 35px 0px rgba(244,67,54,0.25)'"
+        [style.border-radius] = "'10px'"
+        [style.color]="'white'"
+		>
+			צור חשבון
+		</button>
+	</form>
+	</div>
+</ion-content>

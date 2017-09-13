@@ -1,0 +1,38 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu" style="color:black"></ion-icon>
+		</button>
+		<ion-title>מפה</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="navigation(true)">
+			<ion-icon name="ios-navigate-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<!-- <ngui-map center="40.740, -74.18">
+		<ground-overlay
+		url="https://i.pinimg.com/736x/78/a1/65/78a165f3db1121f23fe4524f40da2608--grocery-store-layout-grocery-store-design.jpg"
+		[bounds]="bounds"
+		[opacity]="0.8"
+		[clickable]="true"></ground-overlay>
+
+		<marker position="will-fall-back-to-brampton-canada"
+		[geoFallbackPosition]="[40.740, -74.18]"
+		(dragstart)="log($event, 'dragstart')"
+		(dragend)="log($event, 'dragend')"
+		draggable="true"></marker>
+	</ngui-map> -->
+
+	<ngui-map zoom="14" center="15.2100824,145.7170825" [style.height]="'100%'">
+    <street-view-panorama
+      position="15.2100824,145.7170825"
+      pov="{heading: 165, pitch: 0}"
+      zoom="1"
+    ></street-view-panorama>
+  </ngui-map>
+
+</ion-content>

@@ -1,1 +1,43 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+  <ion-content class="wowBg" padding>
+
+    <ion-grid padding [style.color]="'white'">
+      <ion-row>
+        <ion-col col-12>
+          <img src="assets/images/child.png" style="width:50%">
+          <br>
+          <br>
+          {{username | titleCase}}
+          <br>
+          <br>
+          {{ email }}
+          <br>
+          <br>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid padding [style.color]="'white'">
+      <ion-row>
+      <ion-list>
+        <button class="transp"
+        [style.padding-left]="'8px'"
+        [style.background-color]="'transparent'"
+        [style.color]="'white'"
+        [style.border-bottom]="'none'"
+        menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          {{p.title}}
+        </button>
+        <button class="transp"
+        [style.padding-left]="'8px'"
+        [style.background-color]="'transparent'"
+        [style.color]="'white'" menuClose ion-item (click)="logout()">
+          התנתק
+        </button>
+      </ion-list>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>

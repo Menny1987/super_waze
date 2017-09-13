@@ -1,0 +1,30 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu" style="color:black"></ion-icon>
+		</button>
+		<ion-title>היסטוריה</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-grid>
+		<ion-row *ngFor="let x of order">
+			<ion-col col-8>
+        <!--shows number of order-->
+				מספר הזמנה: {{x.id}}
+				<br>
+        <!--shows creation date-->
+				תאריך הזמנה: {{x.created_at}}
+				<br>
+				<ion-badge color="secondary">הזמנה בוצעה</ion-badge>
+			</ion-col>
+			<ion-col col-4>
+        <!--click event button goes to order user already paid for and used before-->
+				<button item-end ion-button small (click)="viewOrderDetail(x.item)">צפה בהזמנה</button>
+			</ion-col>
+			<hr>
+		</ion-row>
+		<hr>
+	</ion-grid>
+</ion-content>

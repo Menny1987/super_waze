@@ -1,0 +1,26 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			רשימת מוצרים
+		</ion-title>
+		<!-- <ion-buttons end>
+			<button ion-button (click)="logout()">
+				<ion-icon name="log-out"></ion-icon>
+			</button>
+		</ion-buttons> -->
+	</ion-navbar>
+</ion-header>
+<ion-content>
+<ion-list>
+
+<!--click event button to show item-->
+    <ion-item *ngFor="let item of grocery_list" (click)="openGrocery(item)">
+      <ion-thumbnail item-start>
+        <img src="http://138.197.93.114/assets/product/{{item.grocery_image}}">
+      </ion-thumbnail>
+      <h2>{{item.grocery_name}}</h2>
+      <button ion-button clear item-end>צפה במוצר</button>
+    </ion-item>
+</ion-list>
+
+</ion-content>
